@@ -1,5 +1,7 @@
 package com.arrays.geeks4geeks;
 
+import java.util.Arrays;
+
 /**
  * Created by archithrapaka on 6/14/16.
  * link :http://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/
@@ -29,6 +31,7 @@ public class SumTriplet {
 
     public static boolean printTripletByHashMap(int[] a,int sum){
 
+        Arrays.sort(a);
         /* Now fix the first element one by one and find the
        other two elements */
         int l ,r;
