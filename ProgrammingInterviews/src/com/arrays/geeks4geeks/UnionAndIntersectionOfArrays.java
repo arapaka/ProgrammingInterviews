@@ -1,5 +1,7 @@
 package com.arrays.geeks4geeks;
 
+import java.util.Arrays;
+
 /**
  * Created by archithrapaka on 6/18/16.
  * Union and Intersection of two sorted arrays
@@ -57,11 +59,31 @@ public class UnionAndIntersectionOfArrays {
         }
     }
 
+    /*
+    Another approach that is useful when difference between sizes of two given arrays is significant.
+The idea is to iterate through the shorter array and do a binary search
+for every element of short array in big array (note that arrays are sorted).
+Time complexity of this solution is O(min(mLogn, nLogm)).
+This solution works better than the above approach when ratio of larger length to
+smaller is more than logarithmic order.
+     */
+    static void printIntersectionByBinarySearch(int[] largeArray,int[] smallArray){
+
+        // O(smallArray.length(log n )~ o(mlogn) --> where m = elements in small array
+        for (int i = 0; i < smallArray.length; i++) {
+             int found = Arrays.binarySearch(largeArray,smallArray[i]);
+             if(found >= 0){
+                 System.out.println(smallArray[i]);
+             }
+        }
+
+    }
     public static void main(String...args){
         int[] a = {1,2,4,5,6};
         int[] b = {2,3,5,7};
 
          //unionOfTwoSortedArrays(a,b);
-          printIntersection(a,b);
+          //printIntersection(a,b);
+        printIntersectionByBinarySearch(a,b);
     }
 }
