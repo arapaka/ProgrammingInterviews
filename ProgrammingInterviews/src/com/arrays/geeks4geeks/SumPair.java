@@ -57,7 +57,8 @@ public class SumPair {
         while (start <= end){
             if(a[start] + a[end] == sum){
                 System.out.println("the pair is :("+a[start]+","+a[end]+")");
-                return;
+                start++;
+                end--;
             }
             else if (a[start]+a[end] > sum){
                 end--;
@@ -89,6 +90,7 @@ public class SumPair {
     }
 
     public static void main(String...args){
-
+        int[] a = {1,2,3,4};
+        getPairByBinarySearch(a,5);
     }
 }

@@ -29,7 +29,7 @@ public class SumTriplet {
 
     // method 2 , first sort , from fix one element and apply binary search
 
-    public static boolean printTripletByHashMap(int[] a,int sum){
+    public static boolean printTriplet(int[] a,int sum){
 
         Arrays.sort(a);
         /* Now fix the first element one by one and find the
@@ -42,7 +42,8 @@ public class SumTriplet {
             while (l < r){
                 if (a[i] + a[l]+a[r] == sum){
                     System.out.println("the triplet pair is :"+"("+a[i]+","+a[l]+","+a[r]+")");
-                    return true;
+                    l++;
+                    r--;
                 }
                 else if (a[i] + a[l]+a[r] < sum){
                     l++;
@@ -58,6 +59,7 @@ public class SumTriplet {
 
 
     public static void main(String...args){
-
+     int[] a = {1, 4, 45, 6, 10, 8,11,11,0};
+        printTriplet(a,22);
     }
 }
