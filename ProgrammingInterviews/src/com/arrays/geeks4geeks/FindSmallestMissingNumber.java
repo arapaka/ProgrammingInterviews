@@ -38,6 +38,7 @@ public class FindSmallestMissingNumber {
 
     }
 
+    // doesn't work for duplicates...o(logn)
     static int findFirstMissing(int[] a, int start,int end){
          if(start > end){
              return end+1;
