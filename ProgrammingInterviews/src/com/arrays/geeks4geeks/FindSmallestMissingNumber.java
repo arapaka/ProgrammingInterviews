@@ -55,9 +55,27 @@ public class FindSmallestMissingNumber {
 
     }
 
+    static int findMissing(int[]a , int start , int end){
+
+            if(start == end){
+                return end;
+            }
+             int mid = (start+end)/2;
+         if(a[mid] > mid){
+             return findMissing(a,start,mid);
+         } else {
+             return findMissing(a,mid+1,end);
+         }
+
+    }
+
     public static void main(String...args){
-        int[] a = {0, 1, 2, 4, 5, 6, 7, 10};
-        int missing = findFirstMissing(a,0,10);
+
+
+
+        int[] a = {0,1,3,4,5,6,7,8,9,10};
+        //int missing = findFirstMissing(a,0,10);
+        int missing = findMissing(a,0,10);
         System.out.print(missing);
     }
 }
